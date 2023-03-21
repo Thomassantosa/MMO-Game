@@ -18,6 +18,14 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+/MMO Game Project/[Ll]ibrary/
+/MMO Game Project/[Tt]emp/
+/MMO Game Project/[Oo]bj/
+/MMO Game Project/[Bb]uild/
+/MMO Game Project/[Bb]uilds/
+/MMO Game Project/[Ll]ogs/
+/MMO Game Project/[Mm]emoryCaptures/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
