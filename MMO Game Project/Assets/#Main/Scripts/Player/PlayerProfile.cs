@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class PlayerProfile : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public bool hasBoots;
+    public bool hasChest;
+    public bool hasHelmet;
+    public bool hasPants;
+    public GameObject objBoots;
+    public GameObject objChest;
+    public GameObject objHelmet;
+    public GameObject objPants;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void RefreshGear()
+    {
+        objBoots.SetActive(hasBoots);
+        objChest.SetActive(hasChest);
+        objHelmet.SetActive(hasHelmet);
+        objPants.SetActive(hasPants);
     }
 }

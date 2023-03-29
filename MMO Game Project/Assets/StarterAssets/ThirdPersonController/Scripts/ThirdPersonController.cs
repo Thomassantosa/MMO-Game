@@ -17,6 +17,7 @@ namespace StarterAssets
         [Header("Main")]
         public bool hasBow;
 
+        public Item currentItem;
 
 
         [Header("Player")]
@@ -108,7 +109,7 @@ namespace StarterAssets
 #endif
         private Animator _animator;
         private CharacterController _controller;
-        private StarterAssetsInputs _input;
+        public StarterAssetsInputs _input;
         private GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
@@ -165,8 +166,18 @@ namespace StarterAssets
             GroundedCheck();
             Move();
             ShootBow();
+            CheckPickUpItem();
         }
 
+        public void CheckPickUpItem()
+        {
+            _animator.SetBool("PickUp", _input.isPickUp);
+            if (_input.isPickUp)
+            {
+                currentItem.GetItem();
+                _input.isPickUp = false;
+            }
+        }
         public void ShootBow()
         {
             //Check Jika Pegang Bow
