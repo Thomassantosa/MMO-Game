@@ -14,6 +14,11 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Main")]
+        public bool hasBow;
+
+
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -159,6 +164,21 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            ShootBow();
+        }
+
+        public void ShootBow()
+        {
+            //Check Jika Pegang Bow
+            if (hasBow)
+            {
+                _animator.SetBool("ShootBow", _input.isAttack);
+                if (_input.isAttack)
+                {
+                    //Play Aim
+                    _input.isAttack = false;
+                }
+            }
         }
 
         private void LateUpdate()
