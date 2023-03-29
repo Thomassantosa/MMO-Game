@@ -26,6 +26,11 @@
 /MMO Game Project/[Ll]ogs/
 /MMO Game Project/[Mm]emoryCaptures/
 
+/MMO Game Project/UserSettings/EditorUserSettings.asset
+MMO Game Project/UserSettings/EditorUserSettings.asset
+UserSettings/EditorUserSettings.asset
+EditorUserSettings.asset
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
