@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
 
     public ThirdPersonController tpc;
     public PlayerProfile profile;
+    public PlayerAttack attack;
 
 
     private void Awake()
@@ -23,6 +24,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void Attack()
+    {
+        tpc.ShootBow();
     }
 }

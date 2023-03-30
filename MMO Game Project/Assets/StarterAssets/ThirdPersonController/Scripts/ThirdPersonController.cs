@@ -16,6 +16,7 @@ namespace StarterAssets
     {
         [Header("Main")]
         public bool hasBow;
+        public bool canMove;
 
         public Item currentItem;
 
@@ -165,30 +166,29 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-            ShootBow();
-            CheckPickUpItem();
+            //ShootBow();
+            //CheckPickUpItem();
         }
 
-        public void CheckPickUpItem()
+        public void PickUpItem()
         {
-            _animator.SetBool("PickUp", _input.isPickUp);
-            if (_input.isPickUp)
-            {
-                currentItem.GetItem();
-                _input.isPickUp = false;
-            }
+            if (currentItem == null) return;
+            canMove = false;
+            _animator.SetTrigger("PickUp");
+            currentItem.GetItem();
+            /*            _animator.SetBool("PickUp", _input.isPickUp);
+                        if (_input.isPickUp)
+                        {
+                            currentItem.GetItem();
+                            _input.isPickUp = false;
+                        }*/
         }
         public void ShootBow()
         {
-            //Check Jika Pegang Bow
-            if (hasBow)
+            if (Grounded && PlayerControl.Instance.profile.hasBow)
             {
-                _animator.SetBool("ShootBow", _input.isAttack);
-                if (_input.isAttack)
-                {
-                    //Play Aim
-                    _input.isAttack = false;
-                }
+                canMove = false;
+                _animator.SetTrigger("ShootBow");
             }
         }
 
@@ -244,6 +244,7 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (!canMove) return;
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 

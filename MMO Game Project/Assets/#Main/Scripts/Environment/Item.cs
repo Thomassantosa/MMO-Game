@@ -52,6 +52,6 @@ public enum ITEM
 }
 public enum GEAR
 { 
-    BOOTS, CHEST, HELMET, PANTS
+    BOOTS, CHEST, HELMET, PANTS, BOW
 }
 

@@ -9,19 +9,12 @@ public class PlayerProfile : MonoBehaviour
     public bool hasChest;
     public bool hasHelmet;
     public bool hasPants;
+    public bool hasBow;
     public GameObject objBoots;
     public GameObject objChest;
     public GameObject objHelmet;
     public GameObject objPants;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public GameObject objBow;
 
     public void RefreshGear()
     {
@@ -29,5 +22,6 @@ public class PlayerProfile : MonoBehaviour
         objChest.SetActive(hasChest);
         objHelmet.SetActive(hasHelmet);
         objPants.SetActive(hasPants);
+        objBow.SetActive(hasBow);
     }
 }

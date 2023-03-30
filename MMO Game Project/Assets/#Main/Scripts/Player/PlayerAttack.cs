@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Transform cam;
+/*    public Transform cam;
 
     public LayerMask layerPlayer;
 
     [SerializeField] private bool isInteract;
-    [SerializeField] private float rangeInteract;
+    [SerializeField] private float rangeInteract;*/
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+/*    // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
@@ -26,5 +26,6 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
         }
-    }
+    }*/
+
 }

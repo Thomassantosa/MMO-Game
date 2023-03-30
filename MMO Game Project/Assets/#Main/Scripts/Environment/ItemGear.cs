@@ -28,6 +28,9 @@ public class ItemGear : Item
                 case GEAR.PANTS:
                     PlayerControl.Instance.profile.hasPants = true;
                     break;
+                case GEAR.BOW:
+                    PlayerControl.Instance.profile.hasBow = true;
+                    break;
             }
             Invoke(nameof(ApplyItem), .35f);
         }
