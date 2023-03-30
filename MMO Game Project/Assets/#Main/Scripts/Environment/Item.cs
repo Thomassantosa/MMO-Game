@@ -20,17 +20,6 @@ public class Item : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Show Interact
-
-        if (other.transform.tag.Equals("Player"))
-        {
-            CanGetItem();
-            canvasInteract.SetActive(true);
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         //Hide Interact

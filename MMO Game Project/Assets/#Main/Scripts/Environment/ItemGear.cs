@@ -42,4 +42,14 @@ public class ItemGear : Item
         PlayerControl.Instance.tpc.currentItem = null;
         Destroy(gameObject, .025f);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        //Show Interact
+
+        if (other.transform.tag.Equals("Player"))
+        {
+            CanGetItem();
+            canvasInteract.SetActive(true);
+        }
+    }
 }
