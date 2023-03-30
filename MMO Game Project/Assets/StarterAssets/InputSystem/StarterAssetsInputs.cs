@@ -12,6 +12,8 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool isAttack;
+		public bool isPickUp;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -42,6 +44,19 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+		public void OnAttack(InputValue value)
+        {
+			isAttack = value.isPressed;
+			Debug.Log("Attack");
+			PlayerControl.Instance.Attack();
+		}
+
+		public void OnPick(InputValue value)
+		{
+			isPickUp = value.isPressed;
+			PlayerControl.Instance.tpc.PickUpItem();
 		}
 #endif
 

@@ -14,6 +14,13 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Main")]
+        public bool hasBow;
+        public bool canMove;
+
+        public Item currentItem;
+
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -103,7 +110,7 @@ namespace StarterAssets
 #endif
         private Animator _animator;
         private CharacterController _controller;
-        private StarterAssetsInputs _input;
+        public StarterAssetsInputs _input;
         private GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
@@ -159,6 +166,30 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            //ShootBow();
+            //CheckPickUpItem();
+        }
+
+        public void PickUpItem()
+        {
+            if (currentItem == null) return;
+            canMove = false;
+            _animator.SetTrigger("PickUp");
+            currentItem.GetItem();
+            /*            _animator.SetBool("PickUp", _input.isPickUp);
+                        if (_input.isPickUp)
+                        {
+                            currentItem.GetItem();
+                            _input.isPickUp = false;
+                        }*/
+        }
+        public void ShootBow()
+        {
+            if (Grounded && PlayerControl.Instance.profile.hasBow)
+            {
+                canMove = false;
+                _animator.SetTrigger("ShootBow");
+            }
         }
 
         private void LateUpdate()
@@ -213,6 +244,7 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (!canMove) return;
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
