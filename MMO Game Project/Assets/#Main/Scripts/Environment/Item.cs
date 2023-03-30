@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public GameObject canvasInteract;
     public TextMeshProUGUI textItemName;
 
+    public Transform posEffectPick;
+    public GameObject effectPick;
     public string itemName;
 
     void Start()

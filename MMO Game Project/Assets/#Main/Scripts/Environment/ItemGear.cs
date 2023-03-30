@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemGear : Item
 {
     public GEAR gear;
-
     public override void CanGetItem()
     {
         PlayerControl.Instance.tpc.SetItem(this);
@@ -14,6 +13,7 @@ public class ItemGear : Item
     {
         if (PlayerControl.Instance.tpc._input.isPickUp)
         {
+            Instantiate(effectPick, posEffectPick.position, Quaternion.identity);
             PlayerControl.Instance.tpc.ReleaseItem();
             switch (gear)
             {

@@ -6,6 +6,7 @@ public class ItemChest : Item
 {
     public bool hasOpen;
     public GameObject[] items;
+
     public override void CanGetItem()
     {
         PlayerControl.Instance.tpc.SetItem(this);
@@ -24,7 +25,7 @@ public class ItemChest : Item
     {
         hasOpen = true;
         PlayerControl.Instance.tpc.ReleaseItem();
-
+        Instantiate(effectPick, posEffectPick.position, Quaternion.identity);
         foreach (GameObject item in items)
         {
             item.SetActive(true);
