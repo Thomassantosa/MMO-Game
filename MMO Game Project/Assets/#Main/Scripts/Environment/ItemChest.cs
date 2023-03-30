@@ -8,7 +8,7 @@ public class ItemChest : Item
     public GameObject[] items;
     public override void CanGetItem()
     {
-        PlayerControl.Instance.tpc.currentItem = this;
+        PlayerControl.Instance.tpc.SetItem(this);
     }
     public override void GetItem()
     {
@@ -23,7 +23,7 @@ public class ItemChest : Item
     private void OpenChest()
     {
         hasOpen = true;
-        PlayerControl.Instance.tpc.currentItem = null;
+        PlayerControl.Instance.tpc.ReleaseItem();
 
         foreach (GameObject item in items)
         {

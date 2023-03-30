@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
 
         if (other.transform.tag.Equals("Player"))
         {
-            PlayerControl.Instance.tpc.currentItem = null;
+            PlayerControl.Instance.tpc.ReleaseItem();
             canvasInteract.SetActive(false);
         }
     }
