@@ -16,6 +16,8 @@ public class PlayerProfile : MonoBehaviour
     public GameObject objPants;
     public GameObject objBow;
 
+
+    public GameObject effectRefreshGear;
     public void RefreshGear()
     {
         objBoots.SetActive(hasBoots);
@@ -23,5 +25,6 @@ public class PlayerProfile : MonoBehaviour
         objHelmet.SetActive(hasHelmet);
         objPants.SetActive(hasPants);
         objBow.SetActive(hasBow);
+        effectRefreshGear.SetActive(true);
     }
 }

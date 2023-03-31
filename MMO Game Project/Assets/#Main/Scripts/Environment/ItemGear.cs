@@ -5,15 +5,16 @@ using UnityEngine;
 public class ItemGear : Item
 {
     public GEAR gear;
-
     public override void CanGetItem()
     {
-        PlayerControl.Instance.tpc.currentItem = this;
+        PlayerControl.Instance.tpc.SetItem(this);
     }
     public override void GetItem()
     {
         if (PlayerControl.Instance.tpc._input.isPickUp)
         {
+            Instantiate(effectPick, posEffectPick.position, Quaternion.identity);
+            PlayerControl.Instance.tpc.ReleaseItem();
             switch (gear)
             {
                 case GEAR.BOOTS:
@@ -39,7 +40,6 @@ public class ItemGear : Item
     private void ApplyItem()
     {
         PlayerControl.Instance.profile.RefreshGear();
-        PlayerControl.Instance.tpc.currentItem = null;
         Destroy(gameObject, .025f);
     }
     private void OnTriggerEnter(Collider other)
