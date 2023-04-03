@@ -19,6 +19,7 @@ namespace StarterAssets
         public bool canMove;
 
         public Item currentItem;
+        public Item nextItem;
 
 
         [Header("Player")]
@@ -169,9 +170,37 @@ namespace StarterAssets
             //ShootBow();
             //CheckPickUpItem();
         }
+        public void SetItem(Item newItem)
+        {
+            if (currentItem == null)
+            {
+                currentItem = newItem;
+            }
+            else
+            {
+                if(nextItem == null)
+                {
+                    nextItem = newItem;
+                }
+            }
+        }
 
+        public void ReleaseItem()
+        {
+            if (nextItem != null)
+            {
+                currentItem = nextItem;
+                nextItem = null;
+            }
+            else
+            {
+                currentItem = null;
+                nextItem = null;
+            }
+        }
         public void PickUpItem()
         {
+            if (!Grounded) return;
             if (currentItem == null) return;
             canMove = false;
             _animator.SetTrigger("PickUp");

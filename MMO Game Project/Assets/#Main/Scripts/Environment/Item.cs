@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public GameObject canvasInteract;
     public TextMeshProUGUI textItemName;
 
+    public Transform posEffectPick;
+    public GameObject effectPick;
     public string itemName;
 
     void Start()
@@ -26,7 +28,7 @@ public class Item : MonoBehaviour
 
         if (other.transform.tag.Equals("Player"))
         {
-            PlayerControl.Instance.tpc.currentItem = null;
+            PlayerControl.Instance.tpc.ReleaseItem();
             canvasInteract.SetActive(false);
         }
     }
