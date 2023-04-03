@@ -2,7 +2,7 @@
 Project name not yet decided
 
 ## Current Version
-Version 2.0
+Version 3.0
 
 ## Team Structure
 - Adit      : Game developer lead
