@@ -21,7 +21,6 @@ public class PlayerControl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -29,5 +28,22 @@ public class PlayerControl : MonoBehaviour
     public void Attack()
     {
         tpc.ShootBow();
+    }
+
+    public void GetDamage(int dmg)
+    {
+        if (profile.isImmune) return;
+
+        int currentHealth = profile.Health;
+        currentHealth -= dmg;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            //Player Die
+        }
+
+        profile.SetHealth(currentHealth);
+
+        SoundManager.Instance.PlaySFX(SFX.GET_DAMAGE);
     }
 }

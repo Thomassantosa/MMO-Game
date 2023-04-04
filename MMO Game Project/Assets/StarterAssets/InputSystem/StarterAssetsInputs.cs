@@ -49,14 +49,13 @@ namespace StarterAssets
 		public void OnAttack(InputValue value)
         {
 			isAttack = value.isPressed;
-			Debug.Log("Attack");
 			PlayerControl.Instance.Attack();
 		}
 
 		public void OnPick(InputValue value)
 		{
 			isPickUp = value.isPressed;
-			PlayerControl.Instance.tpc.PickUpItem();
+			PlayerControl.Instance.tpc.InteractItem();
 		}
 #endif
 
