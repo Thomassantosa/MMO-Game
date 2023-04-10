@@ -19,6 +19,8 @@ namespace StarterAssets
 
         public bool hasBow;
         public bool canMove;
+        public bool rotateOnMove;
+        public float sensitivity = 1f;
 
         public Item currentItem;
         public Item nextItem;
@@ -200,8 +202,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -264,7 +266,8 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if(rotateOnMove)
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
 
@@ -449,6 +452,7 @@ namespace StarterAssets
             {
                 canMove = false;
                 _animator.SetTrigger("ShootBow");
+                //controller.attack.Shoot();
             }
         }
 

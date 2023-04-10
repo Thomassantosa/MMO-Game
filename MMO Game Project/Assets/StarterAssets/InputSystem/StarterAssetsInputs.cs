@@ -14,6 +14,9 @@ namespace StarterAssets
 		public bool sprint;
 		public bool isAttack;
 		public bool isPickUp;
+		public bool isAim;
+
+
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -50,12 +53,17 @@ namespace StarterAssets
         {
 			isAttack = value.isPressed;
 			PlayerControl.Instance.Attack();
-		}
+        }
 
-		public void OnPick(InputValue value)
+        public void OnPick(InputValue value)
+        {
+            isPickUp = value.isPressed;
+            PlayerControl.Instance.tpc.InteractItem();
+        }
+
+		public void OnAim(InputValue value)
 		{
-			isPickUp = value.isPressed;
-			PlayerControl.Instance.tpc.InteractItem();
+			isAim = value.isPressed;
 		}
 #endif
 

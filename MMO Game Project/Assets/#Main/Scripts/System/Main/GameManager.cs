@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl playerControl;
     public CanvasManager canvasManager;
+    public Camera mainCamera;
 
+    public EnemyPooling enemyPooling;
     private void Awake()
     {
         if (Instance == null)
