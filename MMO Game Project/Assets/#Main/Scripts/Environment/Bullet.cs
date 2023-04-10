@@ -20,13 +20,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "EnemyDamage")
+        Instantiate(effectHit, transform.position, transform.rotation);
+        if (other.gameObject.tag == "EnemyDamage")
         {
             Debug.Log("Dmg");
             other.GetComponent<EnemyControl>().GetDamage(bulletDamage);
+            Destroy(gameObject, .1f);
+        }
+        else
+        {
+            rB.isKinematic = true;
+            GetComponent<BoxCollider>().enabled = false;
+            enabled = false;
         }
 
-        Instantiate(effectHit, transform.position, transform.rotation);
-        Destroy(gameObject,.1f);
     }
 }

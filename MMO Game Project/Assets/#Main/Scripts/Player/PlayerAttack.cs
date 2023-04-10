@@ -16,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
     public float shootForce = 50f;
     public float shootDelay;
     public LayerMask aimColliderMask = new LayerMask();
-    public Transform debugTransform;
 
     private void Update()
     {
@@ -27,8 +26,6 @@ public class PlayerAttack : MonoBehaviour
         Transform hitTransform = null;
         if (Physics.Raycast(ray, out RaycastHit hit, 999f, aimColliderMask))
         {
-            //bullet.transform.LookAt(hit.point);
-            debugTransform.position = hit.point;
             mouseWorldPos = hit.point;
             hitTransform = hit.transform;
         }

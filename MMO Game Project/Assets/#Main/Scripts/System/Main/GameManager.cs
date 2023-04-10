@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl playerControl;
     public CanvasManager canvasManager;
-
+    public Camera mainCamera;
     private void Awake()
     {
         if (Instance == null)
