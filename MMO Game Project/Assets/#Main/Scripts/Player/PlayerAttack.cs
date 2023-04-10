@@ -17,6 +17,9 @@ public class PlayerAttack : MonoBehaviour
     public float shootDelay;
     public LayerMask aimColliderMask = new LayerMask();
 
+
+    public float normalSensitivity;
+    public float aimSensitivity;
     private void Update()
     {
         Vector3 mouseWorldPos = Vector3.zero;
@@ -34,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
         {
             aimVirtualCam.gameObject.SetActive(true);
             controller.tpc.rotateOnMove = false;
+            controller.tpc.sensitivity = aimSensitivity;
 
 
             Vector3 worldAimTarget = mouseWorldPos;
@@ -46,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
         {
             aimVirtualCam.gameObject.SetActive(false);
             controller.tpc.rotateOnMove = true;
+            controller.tpc.sensitivity = normalSensitivity;
         }
 
         if (shootBullet)

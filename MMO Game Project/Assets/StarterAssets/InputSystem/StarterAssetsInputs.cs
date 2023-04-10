@@ -17,6 +17,7 @@ namespace StarterAssets
 		public bool isAim;
 
 
+
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
