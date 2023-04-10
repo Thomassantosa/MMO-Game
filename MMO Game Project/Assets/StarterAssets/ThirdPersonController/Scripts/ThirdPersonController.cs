@@ -19,6 +19,7 @@ namespace StarterAssets
 
         public bool hasBow;
         public bool canMove;
+        public bool rotateOnMove;
 
         public Item currentItem;
         public Item nextItem;
@@ -264,7 +265,8 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if(rotateOnMove)
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
 
@@ -449,6 +451,7 @@ namespace StarterAssets
             {
                 canMove = false;
                 _animator.SetTrigger("ShootBow");
+                //controller.attack.Shoot();
             }
         }
 
