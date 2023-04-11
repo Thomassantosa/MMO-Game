@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectHit: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  effectHitEnemy: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   bulletSpeed: 30
   bulletDamage: 50
 --- !u!65 &3009991363629945653

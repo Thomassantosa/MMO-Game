@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool isAttack;
 		public bool isPickUp;
 		public bool isAim;
+		public bool isMouse;
 
 
 
@@ -65,6 +66,10 @@ namespace StarterAssets
 		{
 			isAim = value.isPressed;
 		}
+		public void OnMouse(InputValue value)
+		{
+			isMouse = value.isPressed;
+		}
 #endif
 
 
@@ -97,6 +102,20 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
+
+        private void Update()
+        {
+			if (!isMouse)
+			{
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			else
+			{
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+			}
+		}
+    }
 	
 }

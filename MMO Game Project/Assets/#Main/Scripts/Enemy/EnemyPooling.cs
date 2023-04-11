@@ -8,18 +8,14 @@ public class EnemyPooling : MonoBehaviour
     //public Transform posRespawn;
     public float timeResawn;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public int counterEnemyDie;
 
     public void EnemyDie()
     {
+        counterEnemyDie++;
+        if (counterEnemyDie >= 3)
+            GameManager.Instance.questManager.FinishQuest();
+
         Invoke(nameof(RespawnEnemy), timeResawn);
     }
     public void RespawnEnemy()

@@ -7,6 +7,8 @@ public class EnemyControl : MonoBehaviour
     public int health;
 
     public Animator anim;
+    public GameObject effectHide;
+
     public float timeHide;
     void Start()
     {
@@ -31,6 +33,7 @@ public class EnemyControl : MonoBehaviour
     }
     public void HideEnemy()
     {
+        Instantiate(effectHide, transform.position, transform.rotation);
         gameObject.SetActive(false);
     }
     
