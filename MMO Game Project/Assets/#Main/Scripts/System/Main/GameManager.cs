@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public CanvasManager canvasManager;
     public Camera mainCamera;
 
+    public QuestManager questManager;
     public EnemyPooling enemyPooling;
     private void Awake()
     {

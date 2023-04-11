@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
             controller.tpc.sensitivity = normalSensitivity;
         }
 
-        if (shootBullet)
+        if (shootBullet && controller.profile.hasBow)
         {
             if(hitTransform != null)
             {

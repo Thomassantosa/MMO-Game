@@ -16,8 +16,7 @@ namespace StarterAssets
     {
         [Header("Main")]
         public PlayerControl controller;
-
-        public bool hasBow;
+        
         public bool canMove;
         public bool rotateOnMove;
         public float sensitivity = 1f;
