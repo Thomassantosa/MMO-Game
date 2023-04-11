@@ -15,8 +15,11 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Main")]
-        public bool hasBow;
+        public PlayerControl controller;
+        
         public bool canMove;
+        public bool rotateOnMove;
+        public float sensitivity = 1f;
 
         public Item currentItem;
         public Item nextItem;
@@ -160,66 +163,6 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
-        private void Update()
-        {
-            _hasAnimator = TryGetComponent(out _animator);
-
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
-            //ShootBow();
-            //CheckPickUpItem();
-        }
-        public void SetItem(Item newItem)
-        {
-            if (currentItem == null)
-            {
-                currentItem = newItem;
-            }
-            else
-            {
-                if(nextItem == null)
-                {
-                    nextItem = newItem;
-                }
-            }
-        }
-
-        public void ReleaseItem()
-        {
-            if (nextItem != null)
-            {
-                currentItem = nextItem;
-                nextItem = null;
-            }
-            else
-            {
-                currentItem = null;
-                nextItem = null;
-            }
-        }
-        public void PickUpItem()
-        {
-            if (!Grounded) return;
-            if (currentItem == null) return;
-            canMove = false;
-            _animator.SetTrigger("PickUp");
-            currentItem.GetItem();
-            /*            _animator.SetBool("PickUp", _input.isPickUp);
-                        if (_input.isPickUp)
-                        {
-                            currentItem.GetItem();
-                            _input.isPickUp = false;
-                        }*/
-        }
-        public void ShootBow()
-        {
-            if (Grounded && PlayerControl.Instance.profile.hasBow)
-            {
-                canMove = false;
-                _animator.SetTrigger("ShootBow");
-            }
-        }
 
         private void LateUpdate()
         {
@@ -258,8 +201,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -322,7 +265,8 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if(rotateOnMove)
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
 
@@ -449,5 +393,68 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        private void Update()
+        {
+            _hasAnimator = TryGetComponent(out _animator);
+
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+            //ShootBow();
+            //CheckPickUpItem();
+        }
+        public void SetItem(Item newItem)
+        {
+            if (currentItem == null)
+            {
+                currentItem = newItem;
+            }
+            else
+            {
+                if (nextItem == null)
+                {
+                    nextItem = newItem;
+                }
+            }
+        }
+
+        public void ReleaseItem()
+        {
+            if (nextItem != null)
+            {
+                currentItem = nextItem;
+                nextItem = null;
+            }
+            else
+            {
+                currentItem = null;
+                nextItem = null;
+            }
+        }
+        public void InteractItem()
+        {
+            if (!Grounded) return;
+            if (currentItem == null) return;
+            canMove = false;
+            _animator.SetTrigger("PickUp");
+            currentItem.GetItem();
+        }
+
+        public void ShootBow()
+        {
+            if (Grounded && PlayerControl.Instance.profile.hasBow)
+            {
+                canMove = false;
+                _animator.SetTrigger("ShootBow");
+                //controller.attack.Shoot();
+            }
+        }
+
+
     }
 }

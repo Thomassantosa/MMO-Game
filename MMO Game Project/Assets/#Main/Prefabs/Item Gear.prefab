@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 4896103155791465440}
   - component: {fileID: 4896103155791465441}
   - component: {fileID: 4896103155791465442}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Item Gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

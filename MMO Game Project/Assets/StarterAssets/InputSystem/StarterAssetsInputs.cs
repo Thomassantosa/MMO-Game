@@ -14,6 +14,10 @@ namespace StarterAssets
 		public bool sprint;
 		public bool isAttack;
 		public bool isPickUp;
+		public bool isAim;
+		public bool isMouse;
+
+
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,14 +53,22 @@ namespace StarterAssets
 		public void OnAttack(InputValue value)
         {
 			isAttack = value.isPressed;
-			Debug.Log("Attack");
 			PlayerControl.Instance.Attack();
-		}
+        }
 
-		public void OnPick(InputValue value)
+        public void OnPick(InputValue value)
+        {
+            isPickUp = value.isPressed;
+            PlayerControl.Instance.tpc.InteractItem();
+        }
+
+		public void OnAim(InputValue value)
 		{
-			isPickUp = value.isPressed;
-			PlayerControl.Instance.tpc.PickUpItem();
+			isAim = value.isPressed;
+		}
+		public void OnMouse(InputValue value)
+		{
+			isMouse = value.isPressed;
 		}
 #endif
 
@@ -90,6 +102,20 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
+
+        private void Update()
+        {
+			if (!isMouse)
+			{
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			else
+			{
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+			}
+		}
+    }
 	
 }
