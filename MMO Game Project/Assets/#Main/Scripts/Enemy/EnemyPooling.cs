@@ -20,13 +20,13 @@ public class EnemyPooling : MonoBehaviour
     }
     public void RespawnEnemy()
     {
-        foreach (GameObject item in objectEnemies)
+        foreach (GameObject enemy in objectEnemies)
         {
-            if (!item.activeInHierarchy)
+            if (!enemy.activeInHierarchy)
             {
-                item.SetActive(true);
+                enemy.SetActive(true);
                 //item.transform.position = posRespawn.position;
-                item.GetComponent<EnemyControl>().InitEnemy();
+                enemy.GetComponent<EnemyControl>().InitEnemy();
                 break;
             }
         }
