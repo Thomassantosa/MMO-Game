@@ -18,12 +18,12 @@ public class QuestManager : MonoBehaviour
 
     public void GetQuest()
     {
-        textQuest.text = "Kill All Enemies";
+        textQuest.text = "Save Citizens";
         textQuest.color = Color.red;
     }
     public void FinishQuest()
     {
-        textQuest.text = "Kill All Enemies (Done)";
+        textQuest.text = "Save Citizens (Done)";
         textQuest.color = Color.green;
     }
 }
