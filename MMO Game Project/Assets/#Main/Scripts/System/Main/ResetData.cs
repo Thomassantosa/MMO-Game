@@ -5,11 +5,17 @@ using UnityEngine;
 public class ResetData : MonoBehaviour
 {
     public bool resetData;
-    void Start()
+    private void Awake()
+    {
+
+        if (resetData)
+            PlayerPrefs.DeleteAll();
+    }
+/*    void Start()
     {
         if(resetData)
         Invoke(nameof(ResetAllData), 2);
-    }
+    }*/
 
     private void ResetAllData()
     {

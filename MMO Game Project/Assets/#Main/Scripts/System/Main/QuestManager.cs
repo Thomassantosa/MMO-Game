@@ -87,7 +87,7 @@ public class QuestManager : MonoBehaviour
         textButton2.text = "Done";
     }
 
-    public void IncrementJamur()
+/*    public void IncrementJamur()
     {
         jamurCount++;
 
@@ -95,6 +95,6 @@ public class QuestManager : MonoBehaviour
         {
             FinishQuest1();
         }
-    }
+    }*/
 
 }

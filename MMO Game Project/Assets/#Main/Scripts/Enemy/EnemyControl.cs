@@ -10,14 +10,28 @@ public class EnemyControl : MonoBehaviour
     public GameObject effectHide;
 
     public float timeHide;
-    void Start()
-    {
-        
-    }
 
+    public Transform player;
+    public float speed;
+    private bool die;
     void Update()
     {
-        
+        if (die) return;
+
+        if (player != null)
+        {
+            anim.SetBool("WalkForward", true);
+            transform.LookAt(player.position);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag.Equals("Player"))
+        {
+            player = other.transform;
+        }
     }
     public void GetDamage(int dmg)
     {
@@ -26,6 +40,8 @@ public class EnemyControl : MonoBehaviour
         health -= dmg;
         if(health <= 0)
         {
+            die = true;
+            anim.SetBool("WalkForward", false);
             anim.SetBool("Death", true);
             //GameManager.Instance.enemyPooling.EnemyDie();
             Invoke(nameof(HideEnemy), timeHide);

@@ -15,7 +15,7 @@ public class ItemJamur : Item
             Instantiate(effectPick, posEffectPick.position, Quaternion.identity);
             PlayerControl.Instance.tpc.ReleaseItem();
             //Increment Jamur Counter
-            GameManager.Instance.questManager.IncrementJamur();
+            //GameManager.Instance.questManager.IncrementJamur();
             Invoke(nameof(ApplyItem), .35f);
         }
     }
