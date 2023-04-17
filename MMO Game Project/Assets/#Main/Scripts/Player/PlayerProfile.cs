@@ -17,6 +17,18 @@ public class PlayerProfile : MonoBehaviour
 
     }
     public Action<int> onHealthUpdate;
+    public int armor;
+    public int Armor
+    {
+        get { return armor; }
+        set
+        {
+            armor = value;
+            onArmorUpdate?.Invoke(armor);
+        }
+
+    }
+    public Action<int> onArmorUpdate;
 
     public bool isImmune;
     [SerializeField] private float immuneTime;
@@ -37,6 +49,40 @@ public class PlayerProfile : MonoBehaviour
 
 
     public GameObject effectRefreshGear;
+
+    private void Start()
+    {
+        LoadData();
+    }
+    public void LoadData()
+    {
+        if(!PlayerPrefs.HasKey("BOW"))
+        {
+            PlayerPrefs.SetInt("BOW", 0);
+            PlayerPrefs.SetInt("BOOTS", 0);
+            PlayerPrefs.SetInt("CHEST", 0);
+            PlayerPrefs.SetInt("HELMET", 0);
+            PlayerPrefs.SetInt("PANTS", 0);
+        }
+
+        hasBow = PlayerPrefs.GetInt("BOW") == 1 ? true : false;
+        hasBoots = PlayerPrefs.GetInt("BOOTS") == 1 ? true : false;
+        hasChest = PlayerPrefs.GetInt("CHEST") == 1 ? true : false;
+        hasHelmet = PlayerPrefs.GetInt("HELMET") == 1 ? true : false;
+        hasPants = PlayerPrefs.GetInt("PANTS") == 1 ? true : false;
+
+        Armor = 0;
+        if (hasPants)
+        {
+            Armor += 50;
+        }
+        if (hasChest)
+        {
+            Armor += 50;
+        }
+        RefreshGear();
+    }
+
     public void RefreshGear()
     {
         objBoots.SetActive(hasBoots);

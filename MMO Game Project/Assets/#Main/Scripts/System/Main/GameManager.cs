@@ -17,17 +17,13 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
         }
     }
     void Start()
     {
         //Subscribe
         playerControl.profile.onHealthUpdate += canvasManager.UpdateSliderHealth;
+        playerControl.profile.onArmorUpdate += canvasManager.UpdateSliderArmor;
 
 
         playerControl.profile.SetHealth(100);

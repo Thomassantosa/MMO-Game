@@ -19,18 +19,25 @@ public class ItemGear : Item
             {
                 case GEAR.BOOTS:
                     PlayerControl.Instance.profile.hasBoots = true;
+                    PlayerPrefs.SetInt("BOOTS", 1);
                     break;
                 case GEAR.CHEST:
                     PlayerControl.Instance.profile.hasChest = true;
+                    PlayerControl.Instance.profile.Armor += 50;
+                    PlayerPrefs.SetInt("CHEST", 1);
                     break;
                 case GEAR.HELMET:
                     PlayerControl.Instance.profile.hasHelmet = true;
+                    PlayerPrefs.SetInt("HELMET", 1);
                     break;
                 case GEAR.PANTS:
                     PlayerControl.Instance.profile.hasPants = true;
+                    PlayerControl.Instance.profile.Armor += 50;
+                    PlayerPrefs.SetInt("PANTS", 1);
                     break;
                 case GEAR.BOW:
                     PlayerControl.Instance.profile.hasBow = true;
+                    PlayerPrefs.SetInt("BOW", 1);
                     break;
             }
             Invoke(nameof(ApplyItem), .35f);

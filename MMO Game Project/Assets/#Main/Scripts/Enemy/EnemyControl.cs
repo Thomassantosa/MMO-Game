@@ -27,7 +27,7 @@ public class EnemyControl : MonoBehaviour
         if(health <= 0)
         {
             anim.SetBool("Death", true);
-            GameManager.Instance.enemyPooling.EnemyDie();
+            //GameManager.Instance.enemyPooling.EnemyDie();
             Invoke(nameof(HideEnemy), timeHide);
         }
     }
