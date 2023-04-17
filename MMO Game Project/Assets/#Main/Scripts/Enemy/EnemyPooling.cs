@@ -11,12 +11,12 @@ public class EnemyPooling : MonoBehaviour
     public int counterEnemyDie;
 
     public void EnemyDie()
-    {
+    {/*
         counterEnemyDie++;
         if (counterEnemyDie >= 3)
-            GameManager.Instance.questManager.FinishQuest();
-
-        Invoke(nameof(RespawnEnemy), timeResawn);
+            GameManager.Instance.questManager.FinishQuest1();*/
+/*
+        Invoke(nameof(RespawnEnemy), timeResawn);*/
     }
     public void RespawnEnemy()
     {
