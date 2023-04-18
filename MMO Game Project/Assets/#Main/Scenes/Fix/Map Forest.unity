@@ -10890,10 +10890,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5442045258182357738, guid: 13dcd5250a93d3a48a68f187f10cd45e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d3edd6d8aea9ba48a737c302cd60bcc, type: 2}
+    - target: {fileID: -4151923400111128033, guid: 13dcd5250a93d3a48a68f187f10cd45e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3eff6c01b9b839a47add025afe1fb273, type: 2}
     - target: {fileID: 919132149155446097, guid: 13dcd5250a93d3a48a68f187f10cd45e, type: 3}
       propertyPath: m_Name
       value: NPC Dialog 1@Breathing Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 7781347261084201775, guid: 13dcd5250a93d3a48a68f187f10cd45e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d3edd6d8aea9ba48a737c302cd60bcc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13dcd5250a93d3a48a68f187f10cd45e, type: 3}
 --- !u!1 &1291687868
