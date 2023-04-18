@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-guid: 32e8b022da3e1124e89a6a071df4f44f
+guid: c17fdcf99b66ed341b80a77325effa07
 ModelImporter:
   serializedVersion: 20300
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PT_Medieval_Modular_NPC_Material
-    second: {fileID: 2100000, guid: c79855c6f54ed954293d041acc3120a8, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 1
