@@ -626,14 +626,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3D Artist & Environment
-
-    Vito
-
-
-    Project Manager
-
-    Aloysius'
+  m_text: "3D Artist & Environment\nStory Writer\nVito\n\nProject Manager & \nGame
+    Designer\nAloysius"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 519a40819767d594c9af4350d5952405, type: 2}
   m_sharedMaterial: {fileID: 7966970440188152098, guid: 519a40819767d594c9af4350d5952405, type: 2}
@@ -873,7 +867,7 @@ MonoBehaviour:
     Adithia
 
 
-    UI Designer
+    UI Designer & Developer
 
     Thomas
 
