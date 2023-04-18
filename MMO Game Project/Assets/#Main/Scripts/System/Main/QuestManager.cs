@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour
     public void GetQuest1()
     {
         PlayerPrefs.SetInt("PROGRESS1", 1);
-        textQuest.text = "Collect Mushroom";
+        textQuest.text = "Help Villager";
         textQuest.color = Color.red;
         textButton1.text = "On Progress";
         buttonQuest1.interactable = false;
@@ -64,7 +64,7 @@ public class QuestManager : MonoBehaviour
     {
         questDone1 = 1;
         PlayerPrefs.SetInt("QUEST1", 1);
-        textQuest.text = "Collect Mushroom (Done)";
+        textQuest.text = "Help Villager (Done)";
         textQuest.color = Color.green;
         buttonQuest2.interactable = true;
         textButton1.text = "Done";
@@ -73,7 +73,7 @@ public class QuestManager : MonoBehaviour
     public void GetQuest2()
     {
         PlayerPrefs.SetInt("PROGRESS2", 1);
-        textQuest.text = "Save Citizens";
+        textQuest.text = "Save Villager";
         textQuest.color = Color.red;
         textButton2.text = "On Progress";
         buttonQuest2.interactable = false;
@@ -82,7 +82,7 @@ public class QuestManager : MonoBehaviour
     {
         questDone2 = 1;
         PlayerPrefs.SetInt("QUEST2", 1);
-        textQuest.text = "Save Citizens (Done)";
+        textQuest.text = "Save Villager (Done)";
         textQuest.color = Color.green;
         textButton2.text = "Done";
     }

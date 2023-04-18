@@ -1213,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6989253798514536938, guid: 18f76b7eb59bd5f4997bf4e8bf070177, type: 3}
       propertyPath: m_text
-      value: Ada 1 warga di atas bukit hampir meninggoy
+      value: Terima kasih sudah menyelamatkanku
       objectReference: {fileID: 0}
     - target: {fileID: 6989253799682358810, guid: 18f76b7eb59bd5f4997bf4e8bf070177, type: 3}
       propertyPath: m_Name

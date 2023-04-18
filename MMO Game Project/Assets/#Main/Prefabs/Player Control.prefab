@@ -315,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115204377507830776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.20000015, y: 1.875, z: -1.9305948}
+  m_LocalPosition: {x: 0.20000482, y: 1.875, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 115204377950825411}
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   nextItem: {fileID: 0}
   MoveSpeed: 2
-  SprintSpeed: 15
+  SprintSpeed: 9
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -6875,7 +6875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990858474765715122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.20000015, y: 1.875, z: -1.9305948}
+  m_LocalPosition: {x: 0.20000482, y: 1.875, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2099854396718384348}
