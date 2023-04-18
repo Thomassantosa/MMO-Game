@@ -12,22 +12,20 @@ public class GameManager : MonoBehaviour
 
     public QuestManager questManager;
     public EnemyPooling enemyPooling;
+
+    public GameObject panelTransisi;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
         }
     }
     void Start()
     {
         //Subscribe
         playerControl.profile.onHealthUpdate += canvasManager.UpdateSliderHealth;
+        playerControl.profile.onArmorUpdate += canvasManager.UpdateSliderArmor;
 
 
         playerControl.profile.SetHealth(100);
@@ -36,5 +34,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EndGame()
+    {
+        Invoke(nameof(TransisiCredit), 3f);
+    }
+
+    private void TransisiCredit()
+    {
+        GameManager.Instance.playerControl.tpc.LockCameraPosition = true;
+
+        GameManager.Instance.playerControl.tpc.MoveSpeed = 0;
+        panelTransisi.SetActive(true);
     }
 }

@@ -6,7 +6,8 @@ public class ItemChest : Item
 {
     public bool hasOpen;
     public GameObject[] items;
-
+    public Animator anim;
+    public GameObject effectItem;
     public override void CanGetItem()
     {
         PlayerControl.Instance.tpc.SetItem(this);
@@ -23,14 +24,21 @@ public class ItemChest : Item
     }
     private void OpenChest()
     {
+        anim.SetBool("IsOpen", true);
         hasOpen = true;
         PlayerControl.Instance.tpc.ReleaseItem();
         Instantiate(effectPick, posEffectPick.position, Quaternion.identity);
+
+        canvasInteract.SetActive(false);
+        Invoke(nameof(SpawnItem), 1);
+    }
+    private void SpawnItem()
+    {
         foreach (GameObject item in items)
         {
             item.SetActive(true);
+            Instantiate(effectItem, item.transform.position, Quaternion.identity);
         }
-        canvasInteract.SetActive(false);
         this.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
